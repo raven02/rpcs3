@@ -114,6 +114,9 @@ public:
 	// Similar to g_escape, but doing tail call to the new function.
 	static void(*const g_tail_escape)(spu_thread*, spu_function_t, u8*);
 
+	// Interpreter table (spu_itype -> ptr)
+	static std::array<u64, 256> g_interpreter_table;
+
 	// Interpreter entry point
 	static spu_function_t g_interpreter;
 
@@ -378,4 +381,7 @@ public:
 
 	// Create recompiler instance (LLVM)
 	static std::unique_ptr<spu_recompiler_base> make_llvm_recompiler(u8 magn = 0);
+
+	// Create recompiler instance (interpreter-based LLVM)
+	static std::unique_ptr<spu_recompiler_base> make_fast_llvm_recompiler();
 };
