@@ -8436,12 +8436,7 @@ struct spu_llvm
 			}
 		});
 
-		u32 worker_count = 1;
-
-		if (uint hc = std::thread::hardware_concurrency(); hc >= 8)
-		{
-			worker_count = hc - 4;
-		}
+		u32 worker_count = 4;
 
 		u32 worker_index = 0;
 
