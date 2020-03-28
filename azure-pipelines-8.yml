@@ -9,6 +9,7 @@ pr:
   branches:
     include:
       - master
+jobs:
 
 - job: Windows_Build
   variables:
