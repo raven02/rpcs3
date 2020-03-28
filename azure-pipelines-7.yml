@@ -30,6 +30,8 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
+- bash: .travis/setup-windows.sh
+  displayName: Download and unpack dependencies
 - task: VSBuild@1
   inputs:
     platform: 'x64'
